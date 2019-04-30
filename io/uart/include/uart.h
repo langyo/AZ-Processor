@@ -28,6 +28,24 @@
  *	 UART_DIV_RATEは10,000,000÷38,400で260となります。
  *	 UART_DIV_CNT_Wはlog2(260)で9となります。
  */
+/*
+ *  （由 @Switefaster 翻译）
+ * 【关于分周】
+ * ・UART会基于全体芯片的基频生成波特率。
+ *	 要改变基频和波特率的场合
+ *	 请变更UART_DIV_RATE和UART_DIV_CNT_W和UartDivCntBus。
+ * ・UART_DIV_RATE定义了分周频率。
+ *	 UART_DIV_RATE是基频除以波特率的值。
+ * ・UART_DIV_CNT_W定义了分周计数器的宽度。
+ *	 UART_DIV_CNT_W是UART_DIV_RATE取log2的值。
+ * ・UartDivCntBus是UART_DIV_CNT_W的BUS。
+ *	 请使UART_DIV_CNT_W-1:0。(?又来)
+ *
+ * 【分周的例子】
+ * ・当UART的波特率是38,400baud、芯片全体的基频是10MHz的场合、
+ *	 UART_DIV_RATE是10,000,000÷38,400得260。
+ *	 UART_DIV_CNT_W是log2(260)得9。
+ */
 
 	/********** 分周カウンタ *********/
 	`define UART_DIV_RATE	   9'd260  // 分周レート

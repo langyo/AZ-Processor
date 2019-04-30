@@ -29,6 +29,26 @@
  *	 ROM_DEPTHは8192÷4で2048
  *	 ROM_ADDR_Wはlog2(2048)で11となります。
  */
+/*
+ *  （由 @Switefaster 翻译）
+ * 【关于ROM大小】
+ * ・若要更改 ROM 大小
+ *	 请更改 ROM_SIZE、ROM_DEPTH、ROM_ADDR_W、RomAddrBus、RomAddrLoc。
+ * ・ROM_SIZE定义了ROM的大小。
+ * ・ROM_DEPTH定义了ROM的深度。
+ *	 因为ROM的宽度基本固定在 32bit(4Byte)、
+ *	 ROM_DEPTH将会是ROM_SIZE除以四的值。
+ * ・ROM_ADDR_W定义了ROM的地址宽度、
+ *	 将会是log2ROM_DEPTH。
+ * ・RomAddrBus和RomAddrLoc是ROM_ADDR_W的BUS。
+ *	 请将使ROM_ADDR_W-1:0。(?没听懂)
+ *
+ * 【ROM大小的例子】
+ * ・当ROM大小是8192Byte（4KB）的场合、
+ *	 ROM_DEPTH是8192/4=2048
+ *	 ROM_ADDR_W是log2(2048)。
+ */
+
 
 	`define ROM_SIZE   8192	// ROMのサイズ
 	`define ROM_DEPTH  2048	// ROMの深さ
